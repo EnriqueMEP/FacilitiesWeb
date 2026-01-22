@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MEPFacilities — Construimos Juntos</title>
+  <meta name="description" content="Grupo empresarial de ingeniería y ejecución integral de proyectos. Climatización, fontanería, electricidad y mantenimiento.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/landing.css">
+  
+  <style>
+    /* Landing 01 Specific Styles - Corporate Premium */
+    .hero-01 {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-01::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse at 20% 80%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(0, 212, 200, 0.1) 0%, transparent 50%),
+        linear-gradient(180deg, var(--color-charcoal-deep) 0%, var(--color-charcoal) 100%);
+      z-index: 0;
+    }
+    
+    .hero-01 .container { position: relative; z-index: 2; }
+    .hero-content-01 { max-width: 800px; }
+    
+    .hero-overline {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--color-cyan);
+      margin-bottom: var(--space-lg);
+      opacity: 0;
+      animation: slideUp 0.6s ease 0.2s forwards;
+    }
+    
+    .hero-overline::before {
+      content: '';
+      width: 40px;
+      height: 2px;
+      background: var(--color-cyan);
+    }
+    
+    .hero-title-01 {
+      font-size: var(--text-6xl);
+      font-weight: 800;
+      line-height: 0.95;
+      margin-bottom: var(--space-xl);
+      opacity: 0;
+      animation: slideUp 0.6s ease 0.3s forwards;
+    }
+    
+    .hero-title-01 span {
+      display: block;
+      background: linear-gradient(135deg, var(--color-white) 0%, var(--color-gray-lighter) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero-title-01 em {
+      font-style: normal;
+      color: var(--color-orange);
+      -webkit-text-fill-color: var(--color-orange);
+    }
+    
+    .hero-description-01 {
+      font-size: var(--text-xl);
+      color: var(--color-gray-lighter);
+      line-height: 1.7;
+      margin-bottom: var(--space-2xl);
+      max-width: 600px;
+      opacity: 0;
+      animation: slideUp 0.6s ease 0.4s forwards;
+    }
+    
+    .hero-cta-01 {
+      display: flex;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: slideUp 0.6s ease 0.5s forwards;
+    }
+    
+    .hero-float {
+      position: absolute;
+      right: 10%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 400px;
+      height: 400px;
+      z-index: 1;
+      opacity: 0;
+      animation: fadeIn 1s ease 0.8s forwards;
+    }
+    
+    .float-circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 107, 53, 0.2);
+    }
+    
+    .float-circle-1 { width: 100%; height: 100%; animation: floatRotate 20s linear infinite; }
+    .float-circle-2 { width: 80%; height: 80%; top: 10%; left: 10%; border-color: rgba(0, 212, 200, 0.15); animation: floatRotate 25s linear infinite reverse; }
+    .float-circle-3 { width: 60%; height: 60%; top: 20%; left: 20%; animation: floatRotate 15s linear infinite; }
+    
+    @keyframes floatRotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @media (max-width: 1024px) { .hero-float { display: none; } }
+    
+    .group-section {
+      padding: var(--space-5xl) 0;
+      background: var(--color-charcoal);
+      position: relative;
+    }
+    
+    .group-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.3), transparent);
+    }
+    
+    .group-header {
+      text-align: center;
+      margin-bottom: var(--space-4xl);
+    }
+    
+    .group-header .pill { margin-bottom: var(--space-lg); }
+    .group-header h2 { font-size: var(--text-4xl); margin-bottom: var(--space-lg); }
+    .group-header p { font-size: var(--text-lg); color: var(--color-gray-lighter); max-width: 700px; margin: 0 auto; }
+    
+    .company-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-xl);
+    }
+    
+    @media (max-width: 1024px) { .company-cards { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) { .company-cards { grid-template-columns: 1fr; } }
+    
+    .company-card {
+      position: relative;
+      padding: var(--space-2xl);
+      background: linear-gradient(145deg, rgba(26, 26, 30, 0.8) 0%, rgba(17, 17, 19, 0.9) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      transition: all var(--transition-slow);
+    }
+    
+    .company-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-orange);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition-slow);
+    }
+    
+    .company-card:hover::before { transform: scaleX(1); }
+    
+    .company-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255, 107, 53, 0.2);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 60px rgba(255, 107, 53, 0.1);
+    }
+    
+    .company-card .pill { margin-bottom: var(--space-lg); }
+    .company-card h3 { font-size: var(--text-2xl); font-weight: 700; margin-bottom: var(--space-md); }
+    .company-card p { color: var(--color-cyan); font-size: var(--text-base); line-height: 1.7; }
+    
+    .company-card-icon {
+      position: absolute;
+      bottom: var(--space-lg);
+      right: var(--space-lg);
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 107, 53, 0.1);
+      border-radius: var(--radius-md);
+      color: var(--color-orange);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all var(--transition-base);
+    }
+    
+    .company-card:hover .company-card-icon { opacity: 1; transform: translateY(0); }
+    .company-card-icon svg { width: 24px; height: 24px; }
+    
+    .benefits-section {
+      padding: var(--space-5xl) 0;
+      background: var(--color-charcoal-deep);
+    }
+    
+    .benefits-header {
+      text-align: center;
+      margin-bottom: var(--space-4xl);
+    }
+    
+    .benefits-header h2 { font-size: var(--text-3xl); margin-bottom: var(--space-md); }
+    .benefits-header p { color: var(--color-gray-lighter); font-size: var(--text-lg); max-width: 600px; margin: 0 auto; }
+    
+    .benefits-grid-01 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-xl);
+    }
+    
+    @media (max-width: 1024px) { .benefits-grid-01 { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) { .benefits-grid-01 { grid-template-columns: 1fr; } }
+    
+    .benefit-item {
+      text-align: center;
+      padding: var(--space-2xl) var(--space-lg);
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-xl);
+      transition: all var(--transition-base);
+    }
+    
+    .benefit-item:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 107, 53, 0.2);
+      transform: translateY(-4px);
+    }
+    
+    .benefit-icon-wrap {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto var(--space-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 107, 53, 0.1);
+      border: 1px solid rgba(255, 107, 53, 0.2);
+      border-radius: var(--radius-lg);
+      color: var(--color-orange);
+    }
+    
+    .benefit-icon-wrap svg { width: 32px; height: 32px; }
+    .benefit-item h4 { font-size: var(--text-lg); margin-bottom: var(--space-sm); }
+    .benefit-item p { font-size: var(--text-sm); color: var(--color-gray-lighter); line-height: 1.6; }
+    
+    .projects-section {
+      padding: var(--space-5xl) 0;
+      background: var(--color-charcoal);
+    }
+    
+    .projects-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: var(--space-3xl);
+      flex-wrap: wrap;
+      gap: var(--space-xl);
+    }
+    
+    .projects-header h2 { font-size: var(--text-3xl); }
+    .projects-header p { color: var(--color-gray-lighter); max-width: 500px; }
+    
+    .projects-grid-01 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+    }
+    
+    @media (max-width: 1024px) { .projects-grid-01 { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) { .projects-grid-01 { grid-template-columns: 1fr; } }
+    
+    .project-item {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      cursor: pointer;
+    }
+    
+    .project-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+      z-index: 1;
+      opacity: 0.7;
+      transition: opacity var(--transition-base);
+    }
+    
+    .project-item:hover::before { opacity: 1; }
+    
+    .project-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--color-gray-dark) 0%, var(--color-charcoal) 100%);
+      transition: transform var(--transition-slow);
+    }
+    
+    .project-item:nth-child(1) .project-bg { background: linear-gradient(135deg, #1a2a3a 0%, #0d1520 100%); }
+    .project-item:nth-child(2) .project-bg { background: linear-gradient(135deg, #2a1a1a 0%, #150d0d 100%); }
+    .project-item:nth-child(3) .project-bg { background: linear-gradient(135deg, #1a2a1a 0%, #0d150d 100%); }
+    .project-item:nth-child(4) .project-bg { background: linear-gradient(135deg, #2a2a1a 0%, #15150d 100%); }
+    .project-item:nth-child(5) .project-bg { background: linear-gradient(135deg, #1a1a2a 0%, #0d0d15 100%); }
+    .project-item:nth-child(6) .project-bg { background: linear-gradient(135deg, #2a1a2a 0%, #150d15 100%); }
+    
+    .project-item:hover .project-bg { transform: scale(1.1); }
+    
+    .project-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: var(--space-lg);
+      z-index: 2;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all var(--transition-base);
+    }
+    
+    .project-item:hover .project-content { transform: translateY(0); opacity: 1; }
+    .project-content .pill { margin-bottom: var(--space-sm); font-size: 10px; }
+    .project-content h4 { font-size: var(--text-lg); margin-bottom: var(--space-xs); }
+    .project-content p { font-size: var(--text-sm); color: var(--color-gray-lighter); }
+    
+    .contact-section-01 {
+      padding: var(--space-5xl) 0;
+      background: var(--color-charcoal-deep);
+    }
+    
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4xl);
+    }
+    
+    @media (max-width: 1024px) { .contact-wrapper { grid-template-columns: 1fr; gap: var(--space-3xl); } }
+    
+    .contact-info-01 h2 { font-size: var(--text-3xl); margin-bottom: var(--space-lg); }
+    .contact-info-01 > p { font-size: var(--text-lg); color: var(--color-gray-lighter); margin-bottom: var(--space-2xl); line-height: 1.7; }
+    .contact-details-01 { display: flex; flex-direction: column; gap: var(--space-lg); }
+    
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+    }
+    
+    .contact-detail-icon {
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 212, 200, 0.1);
+      border: 1px solid rgba(0, 212, 200, 0.2);
+      border-radius: var(--radius-md);
+      color: var(--color-cyan);
+      flex-shrink: 0;
+    }
+    
+    .contact-detail-icon svg { width: 24px; height: 24px; }
+    .contact-detail-text h4 { font-size: var(--text-base); margin-bottom: var(--space-xs); }
+    .contact-detail-text p, .contact-detail-text a { font-size: var(--text-sm); color: var(--color-gray-lighter); }
+    .contact-detail-text a:hover { color: var(--color-cyan); }
+    
+    .contact-form-01 {
+      background: linear-gradient(145deg, var(--color-charcoal-light) 0%, var(--color-charcoal) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-xl);
+      padding: var(--space-2xl);
+    }
+    
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+    }
+    
+    @media (max-width: 768px) { .form-grid { grid-template-columns: 1fr; } }
+    .form-grid .form-group.full { grid-column: 1 / -1; }
+    
+    .footer-01 {
+      background: var(--color-black);
+      padding: var(--space-4xl) 0 var(--space-2xl);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .footer-grid-01 {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-3xl);
+      margin-bottom: var(--space-3xl);
+    }
+    
+    @media (max-width: 1024px) { .footer-grid-01 { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 768px) { .footer-grid-01 { grid-template-columns: 1fr; } }
+    
+    .footer-brand-01 { display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-lg); }
+    .footer-brand-01 svg { width: 48px; height: 48px; }
+    .footer-brand-01 span { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 700; }
+    .footer-col p { color: var(--color-gray-lighter); font-size: var(--text-sm); line-height: 1.7; }
+    .footer-col h4 { font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-orange); margin-bottom: var(--space-lg); }
+    .footer-links-01 { display: flex; flex-direction: column; gap: var(--space-sm); }
+    .footer-links-01 a { font-size: var(--text-sm); color: var(--color-gray-lighter); transition: color var(--transition-fast); }
+    .footer-links-01 a:hover { color: var(--color-cyan); }
+    
+    .footer-bottom-01 {
+      padding-top: var(--space-xl);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+    }
+    
+    .footer-copyright { font-size: var(--text-sm); color: var(--color-gray-light); }
+    .footer-social { display: flex; gap: var(--space-md); }
+    .footer-social a { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, 0.05); border-radius: var(--radius-md); color: var(--color-gray-lighter); transition: all var(--transition-fast); }
+    .footer-social a:hover { background: var(--color-orange); color: var(--color-white); }
+    .footer-social svg { width: 20px; height: 20px; }
+  </style>
+</head>
+<body>
+  <nav class="back-nav">
+    <a href="../index.html" class="back-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+      Volver al Directorio
+    </a>
+  </nav>
+
+  <section class="hero-01">
+    <div class="container">
+      <div class="hero-content-01">
+        <span class="hero-overline">Grupo Empresarial de Ingeniería</span>
+        <h1 class="hero-title-01">
+          <span>Construimos</span>
+          <span><em>Juntos</em></span>
+        </h1>
+        <p class="hero-description-01">Toda nuestra experiencia unida para ofrecer soluciones integrales en ingeniería y ejecución de proyectos. HVAC, climatización, fontanería, electricidad y mantenimiento de instalaciones.</p>
+        <div class="hero-cta-01">
+          <a href="#contacto" class="btn btn-primary btn-lg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Contactar
+          </a>
+          <a href="#grupo" class="btn btn-secondary btn-lg">Conocer el Grupo</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-float" aria-hidden="true">
+      <div class="float-circle float-circle-1"></div>
+      <div class="float-circle float-circle-2"></div>
+      <div class="float-circle float-circle-3"></div>
+    </div>
+  </section>
+
+  <section class="group-section reveal" id="grupo">
+    <div class="container">
+      <header class="group-header">
+        <span class="pill">Nuestro Grupo</span>
+        <h2>Un grupo, múltiples especialidades</h2>
+        <p>Coordinamos empresas especializadas para ofrecer soluciones completas de ingeniería y ejecución, garantizando calidad y eficiencia en cada proyecto.</p>
+      </header>
+      <div class="company-cards">
+        <article class="company-card reveal stagger-1">
+          <span class="pill">Ingeniería en Energía y Agua</span>
+          <h3>MEP Projects</h3>
+          <p>Diseño e ingeniería de instalaciones mecánicas, eléctricas y de fontanería. Proyectos llave en mano con certificación y garantía.</p>
+          <div class="company-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+        </article>
+        <article class="company-card reveal stagger-2">
+          <span class="pill">Climatización</span>
+          <h3>Jamafrio</h3>
+          <p>Especialistas en sistemas HVAC, climatización industrial y comercial. Instalación, mantenimiento y eficiencia energética.</p>
+          <div class="company-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20M12 6l-4 4M12 6l4 4M12 18l-4-4M12 18l4-4M6 12l4-4M6 12l4 4M18 12l-4-4M18 12l-4 4"/></svg></div>
+        </article>
+        <article class="company-card reveal stagger-3">
+          <span class="pill">Fontanería</span>
+          <h3>GS Fontanería</h3>
+          <p>Instalaciones de fontanería, saneamiento y redes de agua. Soluciones para proyectos residenciales, comerciales e industriales.</p>
+          <div class="company-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M12 22v-6M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M2 12h6M22 12h-6M4.93 19.07l4.24-4.24M14.83 9.17l4.24-4.24"/></svg></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="benefits-section reveal" id="beneficios">
+    <div class="container">
+      <header class="benefits-header">
+        <span class="pill pill-cyan">Ejecución Integral</span>
+        <h2>Ventajas de trabajar con nosotros</h2>
+        <p>Ofrecemos un enfoque integral que garantiza resultados excepcionales en cada proyecto.</p>
+      </header>
+      <div class="benefits-grid-01">
+        <div class="benefit-item reveal stagger-1">
+          <div class="benefit-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <h4>Cumplimiento de Plazos</h4>
+          <p>Gestión rigurosa del tiempo para entregar proyectos en fecha comprometida.</p>
+        </div>
+        <div class="benefit-item reveal stagger-2">
+          <div class="benefit-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <h4>Optimización de Costes</h4>
+          <p>Soluciones eficientes que maximizan el valor de tu inversión.</p>
+        </div>
+        <div class="benefit-item reveal stagger-3">
+          <div class="benefit-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <h4>Especialización Certificada</h4>
+          <p>Equipo cualificado con certificaciones técnicas actualizadas.</p>
+        </div>
+        <div class="benefit-item reveal stagger-4">
+          <div class="benefit-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+          <h4>Eficiencia Energética</h4>
+          <p>Diseños optimizados para reducir el consumo y huella ambiental.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects-section reveal" id="proyectos">
+    <div class="container">
+      <header class="projects-header">
+        <div><span class="pill">Portfolio</span><h2>Proyectos Seleccionados</h2></div>
+        <p>Una muestra de nuestros trabajos más representativos en diversos sectores.</p>
+      </header>
+      <div class="projects-grid-01">
+        <article class="project-item reveal stagger-1"><div class="project-bg"></div><div class="project-content"><span class="pill">Comercial</span><h4>Centro Comercial Plaza Sur</h4><p>Sistema HVAC completo</p></div></article>
+        <article class="project-item reveal stagger-2"><div class="project-bg"></div><div class="project-content"><span class="pill">Industrial</span><h4>Nave Logística Sevilla</h4><p>Instalaciones MEP integradas</p></div></article>
+        <article class="project-item reveal stagger-3"><div class="project-bg"></div><div class="project-content"><span class="pill">Residencial</span><h4>Edificio Alameda 45</h4><p>Climatización y fontanería</p></div></article>
+        <article class="project-item reveal stagger-1"><div class="project-bg"></div><div class="project-content"><span class="pill">Sanitario</span><h4>Clínica Dental Premium</h4><p>Climatización especializada</p></div></article>
+        <article class="project-item reveal stagger-2"><div class="project-bg"></div><div class="project-content"><span class="pill">Hostelería</span><h4>Hotel Boutique Centro</h4><p>Instalaciones completas</p></div></article>
+        <article class="project-item reveal stagger-3"><div class="project-bg"></div><div class="project-content"><span class="pill">Oficinas</span><h4>Torre Empresarial Norte</h4><p>Sistemas MEP eficientes</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section-01 reveal" id="contacto">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="contact-info-01">
+          <span class="pill">Contacto</span>
+          <h2>¿Tienes un proyecto en mente?</h2>
+          <p>Cuéntanos sobre tu proyecto y te ofreceremos una solución personalizada. Nuestro equipo está listo para ayudarte.</p>
+          <div class="contact-details-01">
+            <div class="contact-detail">
+              <div class="contact-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72"/></svg></div>
+              <div class="contact-detail-text"><h4>Teléfono</h4><a href="tel:+34954493638">954 49 36 38</a></div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+              <div class="contact-detail-text"><h4>Email</h4><a href="mailto:info@mepfacilities.com">info@mepfacilities.com</a></div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <div class="contact-detail-text"><h4>Dirección</h4><p>Diego Llorente, 42<br>Los Palacios y Vfca., Sevilla (España)</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-01">
+          <form id="contactForm">
+            <div class="form-grid">
+              <div class="form-group"><label class="form-label" for="name">Nombre *</label><input type="text" id="name" name="name" class="form-input" placeholder="Tu nombre" required></div>
+              <div class="form-group"><label class="form-label" for="email">Email *</label><input type="email" id="email" name="email" class="form-input" placeholder="tu@email.com" required></div>
+              <div class="form-group"><label class="form-label" for="phone">Teléfono</label><input type="tel" id="phone" name="phone" class="form-input" placeholder="+34 600 000 000"></div>
+              <div class="form-group"><label class="form-label" for="company">Empresa</label><input type="text" id="company" name="company" class="form-input" placeholder="Nombre de empresa"></div>
+              <div class="form-group full"><label class="form-label" for="message">Mensaje *</label><textarea id="message" name="message" class="form-textarea" placeholder="Cuéntanos sobre tu proyecto..." required></textarea></div>
+              <div class="form-group full"><button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Enviar Mensaje</button></div>
+            </div>
+          </form>
+          <div class="form-success">
+            <div class="success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <h3>¡Mensaje Enviado!</h3>
+            <p>Gracias por contactarnos. Te responderemos lo antes posible.</p>
+            <a href="mailto:info@mepfacilities.com" class="btn btn-secondary">Enviar otro mensaje</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-01">
+    <div class="container">
+      <div class="footer-grid-01">
+        <div class="footer-col">
+          <div class="footer-brand-01">
+            <svg viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="10" fill="#ff6b35"/><path d="M12 34V14L20 26L28 14V34" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 14H42V34" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>MEPFacilities</span>
+          </div>
+          <p>Grupo empresarial especializado en ingeniería y ejecución integral de proyectos de instalaciones.</p>
+        </div>
+        <div class="footer-col"><h4>Servicios</h4><div class="footer-links-01"><a href="#">Climatización</a><a href="#">Fontanería</a><a href="#">Electricidad</a><a href="#">Mantenimiento</a></div></div>
+        <div class="footer-col"><h4>Empresa</h4><div class="footer-links-01"><a href="#">Sobre Nosotros</a><a href="#">Proyectos</a><a href="#">Certificaciones</a><a href="#">Contacto</a></div></div>
+        <div class="footer-col"><h4>Legal</h4><div class="footer-links-01"><a href="#">Aviso Legal</a><a href="#">Privacidad</a><a href="#">Cookies</a></div></div>
+      </div>
+      <div class="footer-bottom-01">
+        <p class="footer-copyright">© 2024 MEPFacilities. Todos los derechos reservados.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="page-transition" aria-hidden="true"></div>
+  <script src="../js/animations.js"></script>
+  <script src="../js/landing.js"></script>
+</body>
+</html>

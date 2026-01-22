@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MEPFacilities — Construimos Juntos</title>
+  <meta name="description"
+    content="Grupo de empresas especializadas en ingeniería MEP, climatización y fontanería. Soluciones integrales para proyectos de construcción.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- GSAP for professional animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.png">
+  <link rel="apple-touch-icon" href="logo.png">
+</head>
+
+<body>
+  <!-- Loading Screen -->
+  <div class="loader" id="loader">
+    <div class="loader-content">
+      <img src="logo.png" alt="MEPFacilities" class="loader-logo">
+      <div class="loader-bar">
+        <div class="loader-progress"></div>
+      </div>
+      <p class="loader-text">Cargando experiencia</p>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="nav-brand">
+        <img src="logo.png" alt="MEPFacilities" class="nav-logo">
+      </a>
+
+      <!-- Desktop Menu -->
+      <ul class="nav-menu-desktop">
+        <li><a href="#grupo">Grupo</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+
+      <a href="#contacto" class="btn btn-primary nav-cta-desktop">Contactar</a>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+        <div class="nav-toggle-inner">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="nav-mobile" id="navMobile">
+      <div class="nav-mobile-content">
+        <ul class="nav-mobile-menu">
+          <li><a href="#grupo">Grupo</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <a href="#contacto" class="btn btn-primary btn-lg nav-mobile-cta">Contactar</a>
+        <div class="nav-mobile-footer">
+          <img src="logo.png" alt="MEPFacilities">
+          <p>Construimos Juntos</p>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <img src="logo.png" alt="MEPFacilities" class="hero-logo">
+          <h1 class="hero-title">
+            <span>Construimos</span>
+            <span class="highlight">Juntos</span>
+          </h1>
+          <p class="hero-subtitle">La experiencia de GS Fontanería, Jamafrio y MEP-Projects se unen para garantizar la
+            calidad y excelencia en cada proyecto de construcción.</p>
+          <div class="hero-buttons">
+            <a href="#contacto" class="btn btn-primary btn-lg">
+              Contactar
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="#grupo" class="btn btn-outline btn-lg">Conocer el Grupo</a>
+          </div>
+          <div class="hero-logos">
+            <span>Nuestras empresas:</span>
+            <div class="logos-row">
+              <a href="https://gsfontaneria.com/" target="_blank" rel="noopener noreferrer"><img src="gslogo.png" alt="GS Fontanería"></a>
+              <a href="https://jamafrio.com/" target="_blank" rel="noopener noreferrer"><img src="jamafriologo.png" alt="Jamafrio"></a>
+              <a href="https://mepprojects.com/" target="_blank" rel="noopener noreferrer"><img src="meplogo.png" alt="MEP Projects"></a>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <a href="https://gsfontaneria.com/" target="_blank" rel="noopener noreferrer" class="floating-card card-1">
+            <img src="gslogo.png" alt="GS Fontanería">
+          </a>
+          <a href="https://jamafrio.com/" target="_blank" rel="noopener noreferrer" class="floating-card card-2">
+            <img src="jamafriologo.png" alt="Jamafrio">
+          </a>
+          <a href="https://mepprojects.com/" target="_blank" rel="noopener noreferrer" class="floating-card card-3">
+            <img src="meplogo.png" alt="MEP Projects">
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat">
+          <span class="stat-number" data-count="25">0</span>
+          <span class="stat-label">Años de Experiencia</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" data-count="500">0</span>
+          <span class="stat-label">Proyectos Completados</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" data-count="3">0</span>
+          <span class="stat-label">Empresas del Grupo</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" data-count="100">0</span>
+          <span class="stat-label">% Satisfacción</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grupo Section -->
+  <section class="section" id="grupo">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Nuestro Grupo</span>
+        <h2>Toda nuestra <span>experiencia</span> unida</h2>
+        <p>Somos un grupo de empresas comprometidas con ofrecer la mayor calidad en cada proyecto, poniendo las
+          necesidades del cliente en el centro.</p>
+      </div>
+
+      <div class="cards-grid">
+        <a href="https://gsfontaneria.com/" target="_blank" rel="noopener noreferrer" class="card-link">
+          <article class="card">
+            <div class="card-top"></div>
+            <span class="tag tag-sm">Fontanería</span>
+            <h3>GS Fontanería</h3>
+            <p>Instalaciones de fontanería, saneamiento y redes de agua. Soluciones para proyectos residenciales,
+              comerciales e industriales.</p>
+            <div class="card-logo">
+              <img src="gslogo.png" alt="GS Fontanería">
+            </div>
+          </article>
+        </a>
+
+        <a href="https://jamafrio.com/" target="_blank" rel="noopener noreferrer" class="card-link">
+          <article class="card">
+            <div class="card-top"></div>
+            <span class="tag tag-sm">Climatización</span>
+            <h3>Jamafrio</h3>
+            <p>Especialistas en sistemas HVAC, climatización industrial y comercial. Frío industrial y climatización de
+              alto rendimiento.</p>
+            <div class="card-logo">
+              <img src="jamafriologo.png" alt="Jamafrio">
+            </div>
+          </article>
+        </a>
+
+        <a href="https://mepprojects.com/" target="_blank" rel="noopener noreferrer" class="card-link">
+          <article class="card">
+            <div class="card-top"></div>
+            <span class="tag tag-sm">Ingeniería MEP</span>
+            <h3>MEP Projects</h3>
+            <p>Gestión y ejecución de proyectos MEP personalizados. Diseño, planificación e ingeniería de instalaciones.
+            </p>
+            <div class="card-logo">
+              <img src="meplogo.png" alt="MEP Projects">
+            </div>
+          </article>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Section -->
+  <section class="section section-alt" id="servicios">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag tag-cyan">Ejecución Integral</span>
+        <h2>¿Por qué <span>elegirnos</span>?</h2>
+        <p>Coordinamos todas las fases con un único equipo, reduciendo tiempos y evitando sobrecostes.</p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+          </div>
+          <h4>Cumplimiento de Plazos</h4>
+          <p>Planificamos con rigor para entregar a tiempo y con todas las garantías legales.</p>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+            </svg>
+          </div>
+          <h4>Optimización de Costes</h4>
+          <p>Diseñamos proyectos rentables y sostenibles, con ahorros a corto y largo plazo.</p>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+          </div>
+          <h4>Especialización Certificada</h4>
+          <p>Cada área está a cargo de expertos en su oficio, garantizando calidad.</p>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M18 20V10M12 20V4M6 20v-6" />
+            </svg>
+          </div>
+          <h4>Eficiencia Energética</h4>
+          <p>Soluciones optimizadas para reducir el consumo y la huella ambiental.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>¿Listo para empezar tu proyecto?</h2>
+        <p>Nuestro equipo de expertos está preparado para ayudarte.</p>
+        <a href="#contacto" class="btn btn-primary btn-lg">
+          Empezar ahora
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto Section -->
+  <section class="section" id="contacto">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <span class="tag">Contacto</span>
+          <h2>¿Tienes un <span>proyecto</span>?</h2>
+          <p>Cuéntanos sobre tu proyecto y te ofreceremos una solución personalizada.</p>
+
+          <div class="contact-items">
+            <a href="tel:+34954493638" class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+              </div>
+              <div>
+                <strong>Teléfono</strong>
+                <span>954 49 36 38</span>
+              </div>
+            </a>
+
+            <a href="mailto:info@mepfacilities.com" class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="M22 6l-10 7L2 6" />
+                </svg>
+              </div>
+              <div>
+                <strong>Email</strong>
+                <span>info@mepfacilities.com</span>
+              </div>
+            </a>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <div>
+                <strong>Dirección</strong>
+                <span>Diego Llorente, 42<br>Los Palacios y Vfca., Sevilla</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="mailto:info@mepfacilities.com?subject=Consulta%20web" class="btn btn-outline btn-block">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="M22 6l-10 7L2 6" />
+            </svg>
+            Enviar email directo
+          </a>
+        </div>
+
+        <div class="contact-form-box">
+          <form id="contactForm" class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Nombre *</label>
+                <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                <span class="error-msg">Introduce tu nombre</span>
+              </div>
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                <span class="error-msg">Introduce un email válido</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phone">Teléfono</label>
+              <input type="tel" id="phone" name="phone" placeholder="+34 600 000 000">
+            </div>
+            <div class="form-group">
+              <label for="message">Mensaje *</label>
+              <textarea id="message" name="message" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
+              <span class="error-msg">Escribe un mensaje</span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block btn-submit">
+              <span class="btn-text">Enviar Mensaje</span>
+              <span class="btn-loader"></span>
+            </button>
+            <p class="form-disclaimer">* Al enviar aceptas que te contactemos para responder.</p>
+          </form>
+
+          <div class="form-success" id="formSuccess">
+            <div class="success-check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <h3>¡Mensaje Enviado!</h3>
+            <p>Gracias por contactarnos. Te responderemos pronto.</p>
+            <button type="button" class="btn btn-outline" onclick="resetForm()">Enviar otro</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="logo.png" alt="MEPFacilities">
+          <p>Grupo empresarial especializado en ingeniería y ejecución integral de proyectos.</p>
+          <div class="footer-contact">
+            <a href="tel:+34954493638">📞 954 49 36 38</a>
+            <a href="mailto:info@mepfacilities.com">✉️ info@mepfacilities.com</a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div>
+            <h4>Empresas</h4>
+            <a href="https://gsfontaneria.com/" target="_blank" rel="noopener noreferrer">GS Fontanería</a>
+            <a href="https://jamafrio.com/" target="_blank" rel="noopener noreferrer">Jamafrio</a>
+            <a href="https://mepprojects.com/" target="_blank" rel="noopener noreferrer">MEP Projects</a>
+          </div>
+          <div>
+            <h4>Enlaces</h4>
+            <a href="#grupo">Grupo</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#contacto">Contacto</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 MEPFacilities. Todos los derechos reservados.</p>
+        <div class="footer-logos">
+          <a href="https://gsfontaneria.com/" target="_blank" rel="noopener noreferrer"><img src="gslogo.png" alt="GS Fontanería"></a>
+          <a href="https://jamafrio.com/" target="_blank" rel="noopener noreferrer"><img src="jamafriologo.png" alt="Jamafrio"></a>
+          <a href="https://mepprojects.com/" target="_blank" rel="noopener noreferrer"><img src="meplogo.png" alt="MEP Projects"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-top" id="scrollTop" aria-label="Volver arriba">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
