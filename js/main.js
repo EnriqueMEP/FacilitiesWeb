@@ -1,19 +1,30 @@
 /* ==========================================================================
-   MEPFacilities - Professional GSAP Animations & Interactions
-   Premium 10/10 Visual Experience
+   MEPFacilities - Agency-Grade Premium Animations
+   Refined GSAP Animations, Magnetic Effects, Webflow Transitions
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize GSAP
-    gsap.registerPlugin(ScrollTrigger);
+    // Initialize GSAP with premium defaults
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+    // Global easing presets
+    const ease = {
+        smooth: 'power3.out',
+        expo: 'expo.out',
+        elastic: 'elastic.out(1, 0.5)',
+        back: 'back.out(1.7)',
+        inOut: 'power2.inOut'
+    };
 
     // Initialize all modules
+    initThemeToggle();
     initLoader();
     initNavbar();
     initHeroAnimations();
     initScrollAnimations();
     initStatsCounter();
     initParallaxEffects();
+    initMagneticElements();
     initMicroInteractions();
     initContactForm();
     initSmoothScroll();
@@ -130,67 +141,73 @@ function initNavbar() {
     }
 }
 
-// ===== Hero Animations with GSAP =====
+// ===== Hero Animations with GSAP - Premium =====
 function revealHero() {
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    const tl = gsap.timeline({
+        defaults: { ease: 'expo.out' }
+    });
 
-    // Logo entrance
+    // Logo entrance with subtle scale
     tl.to('.hero-logo', {
         opacity: 1,
         y: 0,
-        duration: 0.8,
+        scale: 1,
+        duration: 1,
         onComplete: () => document.querySelector('.hero-logo')?.classList.add('revealed')
     })
-    // Title spans
-    .to('.hero-title span', {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        onComplete: () => document.querySelector('.hero-title')?.classList.add('revealed')
-    }, '-=0.4')
-    // Subtitle
-    .to('.hero-subtitle', {
-        opacity: 1,
-        y: 0,
-        duration: 0.7,
-        onComplete: () => document.querySelector('.hero-subtitle')?.classList.add('revealed')
-    }, '-=0.4')
-    // Buttons
-    .to('.hero-buttons', {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        onComplete: () => document.querySelector('.hero-buttons')?.classList.add('revealed')
-    }, '-=0.3')
-    // Logos row
-    .to('.hero-logos', {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        onComplete: () => document.querySelector('.hero-logos')?.classList.add('revealed')
-    }, '-=0.3')
-    // Floating cards
-    .to('.floating-card', {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: 'back.out(1.7)',
-        onComplete: () => {
-            document.querySelectorAll('.floating-card').forEach(card => {
-                card.classList.add('revealed');
-            });
-        }
-    }, '-=0.4')
-    // Scroll hint
-    .to('.scroll-hint', {
-        opacity: 1,
-        y: 0,
-        duration: 0.5,
-        onComplete: () => document.querySelector('.scroll-hint')?.classList.add('revealed')
-    }, '-=0.2');
+        // Title spans with dramatic stagger
+        .to('.hero-title span', {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            stagger: 0.12,
+            ease: 'expo.out',
+            onComplete: () => document.querySelector('.hero-title')?.classList.add('revealed')
+        }, '-=0.6')
+        // Subtitle with smooth fade
+        .to('.hero-subtitle', {
+            opacity: 1,
+            y: 0,
+            duration: 0.9,
+            ease: 'power3.out',
+            onComplete: () => document.querySelector('.hero-subtitle')?.classList.add('revealed')
+        }, '-=0.7')
+        // Buttons with bounce
+        .to('.hero-buttons', {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'back.out(1.4)',
+            onComplete: () => document.querySelector('.hero-buttons')?.classList.add('revealed')
+        }, '-=0.5')
+        // Logos row
+        .to('.hero-logos', {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            onComplete: () => document.querySelector('.hero-logos')?.classList.add('revealed')
+        }, '-=0.4')
+        // Floating cards with elastic bounce
+        .to('.floating-card', {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 1,
+            stagger: 0.15,
+            ease: 'elastic.out(1, 0.6)',
+            onComplete: () => {
+                document.querySelectorAll('.floating-card').forEach(card => {
+                    card.classList.add('revealed');
+                });
+            }
+        }, '-=0.5')
+        // Scroll hint with delayed fade
+        .to('.scroll-hint', {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            onComplete: () => document.querySelector('.scroll-hint')?.classList.add('revealed')
+        }, '-=0.3');
 }
 
 function initHeroAnimations() {
@@ -234,17 +251,17 @@ function initHeroAnimations() {
     }
 }
 
-// ===== Scroll-Triggered Animations =====
+// ===== Scroll-Triggered Animations - Premium =====
 function initScrollAnimations() {
-    // Section headers
+    // Section headers with clip-path reveal
     gsap.utils.toArray('.section-header').forEach(header => {
         gsap.fromTo(header,
-            { opacity: 0.7, y: 30 },
+            { opacity: 0, y: 40 },
             {
                 opacity: 1,
                 y: 0,
-                duration: 0.8,
-                ease: 'power3.out',
+                duration: 1,
+                ease: 'expo.out',
                 scrollTrigger: {
                     trigger: header,
                     start: 'top 85%',
@@ -255,17 +272,18 @@ function initScrollAnimations() {
         );
     });
 
-    // Cards with staggered reveal
+    // Cards with staggered reveal and scale
     gsap.utils.toArray('.cards-grid').forEach(grid => {
         const cards = grid.querySelectorAll('.card');
         gsap.fromTo(cards,
-            { opacity: 0.7, y: 40 },
+            { opacity: 0, y: 60, scale: 0.95 },
             {
                 opacity: 1,
                 y: 0,
-                duration: 0.7,
-                stagger: 0.15,
-                ease: 'power3.out',
+                scale: 1,
+                duration: 0.9,
+                stagger: 0.12,
+                ease: 'expo.out',
                 scrollTrigger: {
                     trigger: grid,
                     start: 'top 80%',
@@ -276,18 +294,18 @@ function initScrollAnimations() {
         );
     });
 
-    // Benefits
+    // Benefits with bounce effect
     gsap.utils.toArray('.benefits-grid').forEach(grid => {
         const benefits = grid.querySelectorAll('.benefit');
         gsap.fromTo(benefits,
-            { opacity: 0.7, y: 30, scale: 0.95 },
+            { opacity: 0, y: 50, scale: 0.9 },
             {
                 opacity: 1,
                 y: 0,
                 scale: 1,
-                duration: 0.6,
-                stagger: 0.1,
-                ease: 'power3.out',
+                duration: 0.8,
+                stagger: 0.08,
+                ease: 'back.out(1.4)',
                 scrollTrigger: {
                     trigger: grid,
                     start: 'top 80%',
@@ -382,7 +400,7 @@ function initScrollAnimations() {
     }
 }
 
-// ===== Stats Counter with GSAP =====
+// ===== Stats Counter with GSAP - Premium =====
 function initStatsCounter() {
     const statNumbers = document.querySelectorAll('.stat-number');
 
@@ -394,16 +412,30 @@ function initStatsCounter() {
             start: 'top 85%',
             once: true,
             onEnter: () => {
+                // Add glow effect when counting
                 gsap.to(el, {
-                    duration: 2.5,
-                    ease: 'power2.out',
-                    onUpdate: function() {
+                    textShadow: '0 0 40px rgba(59, 125, 60, 0.5)',
+                    duration: 0.3
+                });
+
+                gsap.to(el, {
+                    duration: 2.2,
+                    ease: 'expo.out',
+                    onUpdate: function () {
                         const progress = this.progress();
                         const currentValue = Math.floor(target * progress);
                         el.textContent = currentValue;
                     },
                     onComplete: () => {
                         el.textContent = target;
+                        // Pulse effect on complete
+                        gsap.to(el, {
+                            scale: 1.05,
+                            duration: 0.15,
+                            yoyo: true,
+                            repeat: 1,
+                            ease: 'power2.out'
+                        });
                     }
                 });
             }
@@ -453,6 +485,91 @@ function initParallaxEffects() {
                 end: 'bottom top',
                 scrub: 2
             }
+        });
+    });
+}
+
+// ===== Magnetic Hover Effects (Premium) =====
+function initMagneticElements() {
+    if (window.innerWidth <= 1024) return;
+
+    // Magnetic effect for buttons
+    document.querySelectorAll('.btn-primary, .btn-lg').forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            gsap.to(btn, {
+                x: x * 0.2,
+                y: y * 0.2,
+                duration: 0.4,
+                ease: 'power2.out'
+            });
+        });
+
+        btn.addEventListener('mouseleave', () => {
+            gsap.to(btn, {
+                x: 0,
+                y: 0,
+                duration: 0.6,
+                ease: 'elastic.out(1, 0.4)'
+            });
+        });
+    });
+
+    // Magnetic effect for floating cards
+    document.querySelectorAll('.floating-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            gsap.to(card, {
+                rotateY: x * 0.1,
+                rotateX: -y * 0.1,
+                duration: 0.3,
+                ease: 'power2.out',
+                transformPerspective: 800
+            });
+        });
+
+        card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+                rotateY: 0,
+                rotateX: 0,
+                duration: 0.8,
+                ease: 'elastic.out(1, 0.4)'
+            });
+        });
+    });
+
+    // Magnetic effect for benefit icons
+    document.querySelectorAll('.benefit-icon').forEach(icon => {
+        const parent = icon.closest('.benefit');
+
+        parent.addEventListener('mousemove', (e) => {
+            const rect = parent.getBoundingClientRect();
+            const x = (e.clientX - rect.left - rect.width / 2) * 0.15;
+            const y = (e.clientY - rect.top - rect.height / 2) * 0.15;
+
+            gsap.to(icon, {
+                x: x,
+                y: y,
+                rotation: x * 0.2,
+                duration: 0.4,
+                ease: 'power2.out'
+            });
+        });
+
+        parent.addEventListener('mouseleave', () => {
+            gsap.to(icon, {
+                x: 0,
+                y: 0,
+                rotation: 0,
+                duration: 0.6,
+                ease: 'elastic.out(1, 0.4)'
+            });
         });
     });
 }
@@ -924,7 +1041,6 @@ function initLazyImages() {
     }
 }
 
-// ===== Text Reveal Animation for Headings =====
 function initTextReveal() {
     gsap.utils.toArray('.section-header h2').forEach(heading => {
         gsap.fromTo(heading,
@@ -947,4 +1063,52 @@ function initTextReveal() {
             }
         );
     });
+}
+
+// ===== Theme Toggle - Light/Dark Mode =====
+function initThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    if (!themeToggle) return;
+
+    // Check for saved theme preference or default to dark
+    const savedTheme = localStorage.getItem('mepfacilities-theme');
+
+    if (savedTheme) {
+        html.setAttribute('data-theme', savedTheme);
+    } else {
+        // Default to dark theme
+        html.setAttribute('data-theme', 'dark');
+    }
+
+    // Toggle theme on click
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = html.getAttribute('data-theme') || 'dark';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        // Add transition class for smooth theme change
+        html.classList.add('theme-transitioning');
+
+        // Apply new theme
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('mepfacilities-theme', newTheme);
+
+        // Animate the toggle button
+        gsap.to(themeToggle, {
+            rotation: newTheme === 'light' ? 180 : 0,
+            duration: 0.4,
+            ease: 'back.out(1.7)'
+        });
+
+        // Remove transition class after animation
+        setTimeout(() => {
+            html.classList.remove('theme-transitioning');
+        }, 500);
+    });
+
+    // Add initial rotation if light theme
+    if (html.getAttribute('data-theme') === 'light') {
+        gsap.set(themeToggle, { rotation: 180 });
+    }
 }
